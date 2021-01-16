@@ -24,6 +24,16 @@
     .option {
       padding: 10px 15px;
       font-weight: 550;
+      transition: 0.3s;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: black;
+        opacity: 0.3;
+        color: white;
+        border-radius: 2px;
+        cursor: pointer;
+      }
     }
   }
 }

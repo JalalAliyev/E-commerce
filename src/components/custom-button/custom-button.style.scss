@@ -23,4 +23,13 @@
     border: 1px solid black;
     font-weight: 600;
   }
+  &.google-signIn {
+    background-color: #4285f4;
+    color: white;
+    margin-right: 2px;
+  }
+  &:hover {
+    background-color: #357ae8;
+    border: none;
+  }
 }
