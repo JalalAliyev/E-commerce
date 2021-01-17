@@ -25,10 +25,8 @@ const SignIn = () => {
 
   return (
     <div className="sign-in">
-      <div className="title">
-        <h2>I already have an account</h2>
+        <h2 className="title">I already have an account</h2>
         <span>Sign in with your email and password</span>
-      </div>
       <form className="form-group" onSubmit={handleSubmit}>
         <FormInput
           type="email"

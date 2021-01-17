@@ -3,7 +3,6 @@ import { withRouter, useHistory } from "react-router-dom";
 import "./menuItem.style.scss";
 
 const MenuItem = ({ title, imageUrl, size, linkUrl, match }) => {
-  console.log(match);
   const history = useHistory();
   return (
     <div
