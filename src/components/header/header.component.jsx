@@ -1,15 +1,23 @@
-import React from "react";
-import { NavLink } from "react-router-dom"; /* 
-import { ReactComponent as Logo } from "../../assets/crown.svg"; */
+import React, { useState } from "react";
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
+import { NavLink } from "react-router-dom";
+import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import "./header.style.scss";
 
 const Header = ({ currentUser }) => {
+  const [isActive, setIsActive] = useState(false);
+  console.log("isActive>>>", isActive);
+
+  const handleClick = () => {
+    setIsActive(!isActive);
+  };
   return (
     <div className="header">
       <NavLink to="/" className="logo-container">
-        <span className="logo">LOGO</span>
+        <Logo className="logo" />
       </NavLink>
       <div className="options">
         <NavLink className="option" to="/shop">
@@ -27,13 +35,15 @@ const Header = ({ currentUser }) => {
             Sign in
           </NavLink>
         )}
+        <CartIcon handleClick={handleClick} />
       </div>
+      {isActive && <CartDropdown />}
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser
-})
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser,
+});
 
 export default connect(mapStateToProps)(Header);

@@ -5,30 +5,27 @@ import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 import "./sign-in.style.scss";
 
 const SignIn = () => {
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const { email, password } = data;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log("email>>>", email);
+    console.log("password>>>", password);
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      setData({
-        email: "",
-        password: "",
-      });
-    } catch (error) {
-      console.log(error);
+      setEmail("");
+      setPassword("");
+    } catch (err) {
+      setError(err.message);
     }
   };
 
   const handleChange = (e) => {
     const { value, name } = e.target;
-    setData({ ...data, [name]: value });
+    name === "email" ? setEmail(value) : setPassword(value);
   };
 
   return (
@@ -36,6 +33,12 @@ const SignIn = () => {
       <h2 className="title">I already have an account</h2>
       <span>Sign in with your email and password</span>
       <form className="form-group" onSubmit={handleSubmit}>
+        {error && (
+          <span
+            style={{ color: "red", paddingTop: "15px", fontWeight: "590" }}>
+            {error}
+          </span>
+        )}
         <FormInput
           type="email"
           name="email"
@@ -53,8 +56,8 @@ const SignIn = () => {
           required
         />
         <div className="buttons">
-          <CustomButton type="submit">Submit Form</CustomButton>
-          <CustomButton type='button' onClick={signInWithGoogle} isGoogleSignIn>
+          <CustomButton type="submit">Sign in</CustomButton>
+          <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>
             Sign in With Google
           </CustomButton>
         </div>
