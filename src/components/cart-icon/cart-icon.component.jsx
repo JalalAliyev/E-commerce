@@ -2,20 +2,21 @@ import React from "react";
 import { connect } from "react-redux";
 import { ReactComponent as ShoppingIcon } from "../../assets/shopping-bag.svg";
 import { toggleButton } from "../../redux/cart/cart-actions";
+import { selectCartItemsCount } from "../../redux/cart/cart-selectors";
 import "./cart-icon.style.scss";
 
-const CartIcon = ({ toggleButton, count }) => {
+const CartIcon = ({ toggleButton, itemCount }) => {
   return (
     <div className="cart-icon">
       <ShoppingIcon onClick={toggleButton} className="shopping-icon" />
-      <span className="item-count">0</span>
+      <span className="item-count">{itemCount}</span>
     </div>
   );
 };
 
-const mapStateToProps = ({cart: {cartItems}}) => {
-  cartItems
-}
+const mapStateToProps = (state) => ({
+  itemCount: selectCartItemsCount(state),
+});
 
 const mapDispatchToProps = (dispatch) => ({
   toggleButton: () => dispatch(toggleButton()),
