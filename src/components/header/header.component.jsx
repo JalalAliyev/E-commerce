@@ -7,13 +7,8 @@ import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import "./header.style.scss";
 
-const Header = ({ currentUser }) => {
-  const [isActive, setIsActive] = useState(false);
-  console.log("isActive>>>", isActive);
+const Header = ({ currentUser, hidden }) => {
 
-  const handleClick = () => {
-    setIsActive(!isActive);
-  };
   return (
     <div className="header">
       <NavLink to="/" className="logo-container">
@@ -35,15 +30,16 @@ const Header = ({ currentUser }) => {
             Sign in
           </NavLink>
         )}
-        <CartIcon handleClick={handleClick} />
+        <CartIcon/>
       </div>
-      {isActive && <CartDropdown />}
+      {!hidden && <CartDropdown />}
     </div>
   );
 };
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+  currentUser,
+  hidden,
 });
 
 export default connect(mapStateToProps)(Header);
