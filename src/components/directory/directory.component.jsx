@@ -31,7 +31,8 @@ const Directory = () => {
     },
     {
       title: "mens",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
+      imageUrl:
+        "https://post.healthline.com/wp-content/uploads/2019/09/man-city-urban-walking-serious-732x549-thumbnail.jpg",
       linkUrl: "",
       size: "large",
       id: 5,
