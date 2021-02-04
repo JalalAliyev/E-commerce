@@ -10,15 +10,17 @@ import ShopPage from "./page/shop/shop.component";
 import Header from "./components/header/header.component";
 import SigninAndSignUpPage from "./page/signInandSignUp/signIn-and-signUp.component";
 import CheckoutPage from "./page/checkout/checkout.component";
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import {
+  auth,
+  createUserProfileDocument,
+} from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user-actions";
 import { selectCurrentUser } from "./redux/user/user-selector";
-
 class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser } = this.props;
+    const { setCurrentUser} = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
