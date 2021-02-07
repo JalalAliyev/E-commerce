@@ -3,4 +3,5 @@ export const CartActionType = {
   TOGGLE_CART_HIDDEN: "toggle-cart-hidden",
   CLEAR_ITEM_FROM_CART: "clear-item-from-cart",
   REMOVE_ITEM: "remove-item",
+  CLEAR_CART: 'clear-cart'
 };

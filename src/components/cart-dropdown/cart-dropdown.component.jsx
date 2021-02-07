@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { useHistory } from "react-router-dom";
 
-import { selectCartItems } from "../../redux/cart/cart-selectors";
 import CartItem from "../cart-item/cart-item.component";
 import CustomButton from "../custom-button/custom-botton.component";
 import { toggleButton } from "../../redux/cart/cart-actions";
+import { selectCartItems } from "../../redux/cart/cart-selectors";
 import "./cart-dropdown.style.scss";
 
 const CartDropdown = ({ cartItems, toggleButton}) => {
