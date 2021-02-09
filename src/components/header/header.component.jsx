@@ -30,7 +30,7 @@ const Header = ({ currentUser, hidden, signOutStart }) => {
             Sign Out
           </div>
         ) : (
-          <NavLink className="option" to="/sign">
+          <NavLink className="option" to="/signIn">
             Sign in
           </NavLink>
         )}

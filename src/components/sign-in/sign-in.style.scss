@@ -1,7 +1,17 @@
 .sign-in {
   width: 380px;
+  margin-top: 30px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 800px) {
+    width: 290px;
+  }
+
+  h2 {
+    margin: 0 auto;
+  }
 
   .title {
     margin: 10px 0;
@@ -10,5 +20,15 @@
   .buttons {
     display: flex;
     justify-content: space-between;
+
+    @media screen and (max-width: 800px) {
+      max-width: 150px;
+    }
+  }
+
+  .sign-in-footer {
+    font-size: 18px;
+    margin: 0 auto;
+    margin-top: 15px;
   }
 }

@@ -20,7 +20,7 @@ const CheckoutItem = ({ cartItem, removeItem, addItem, clearItem }) => {
         <img src={imageUrl} alt="item" />
       </div>
       <span className="name">{name}</span>
-      <span className="quantity">
+      <div className="quantity">
         <div className="checkout-arrow">
           <RemoveOutlinedIcon
             onClick={() => removeItem(cartItem)}
@@ -34,8 +34,8 @@ const CheckoutItem = ({ cartItem, removeItem, addItem, clearItem }) => {
             style={{ fontSize: "12px" }}
           />
         </div>
-      </span>
-      <span className="price">${price}</span>
+      </div>
+      <div className="price">${price}</div>
       <div className="remove-button">
         <DeleteOutlineOutlinedIcon onClick={() => clearItem(cartItem)} />
       </div>
